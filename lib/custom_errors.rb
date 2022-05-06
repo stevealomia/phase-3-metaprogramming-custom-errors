@@ -6,10 +6,16 @@ class Person
   end
 
   def get_married(person)
+    if person.is_a?(Person)
     self.partner = person
     person.partner = self
+    else 
+      raise PartnerError
+    end
   end
 
+  class PartnerError < StandardError
+  end
 end
 
 beyonce = Person.new("Beyonce")
